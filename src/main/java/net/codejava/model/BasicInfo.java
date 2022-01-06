@@ -3,20 +3,21 @@ package net.codejava.model;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import net.codejava.exceptions.ErrorConstants;
 
 @Data
 public class BasicInfo {
 
-	@NotBlank(message = "Name is required")
+	@NotBlank(message = ErrorConstants.BASICINFO_NAME_EMPTY)
 	private String name;
 
-	@NotBlank(message = "Email is required")
+	@NotBlank(message = ErrorConstants.BASICINFO_EMAIL_EMPTY)
 	private String email;
 
-	@NotBlank(message = "Mobile is required")
+	@NotBlank(message = ErrorConstants.BASICINFO_MOBILE_EMPTY)
 	private String mobile;
 
-	@NotBlank(message = "Aadhaar is required")
+	@NotBlank(message = ErrorConstants.BASICINFO_AADHAR_EMPTY)
 	private String aadhaar;
 
 	/*public String getName() {

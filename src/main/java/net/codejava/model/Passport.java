@@ -3,17 +3,18 @@ package net.codejava.model;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import net.codejava.exceptions.ErrorConstants;
 
 @Data
 public class Passport {
 
-	@NotBlank(message = "Passport number is required")
+	@NotBlank(message = ErrorConstants.PASSPORT_PASSPORTNO_EMPTY)
 	private String passportNo;
 
-	@NotBlank(message = "Passport city is required")
+	@NotBlank(message = ErrorConstants.PASSPORT_CITY_EMPTY)
 	private String city;
 
-	@NotBlank(message = "Passport expiry date is required")
+	@NotBlank(message = ErrorConstants.PASSPORT_EXPIRYDATE_EMPTY)
 	private String expiryDate;
 
 	/*public String getPassportNo() {

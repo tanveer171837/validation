@@ -3,17 +3,18 @@ package net.codejava.model;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import net.codejava.exceptions.ErrorConstants;
 
 @Data
 public class Address {
 
-	@NotBlank(message = "City is required")
+	@NotBlank(message = ErrorConstants.ADDRESS_CITY_EMPTY)
 	private String city;
 
-	@NotBlank(message = "Phone number is required")
+	@NotBlank(message = ErrorConstants.ADDRESS_PHONE_EMPTY)
 	private String phone;
 
-	@NotBlank(message = "Pin is required")
+	@NotBlank(message = ErrorConstants.ADDRESS_PIN_EMPTY)
 	private String pin;
 
 	/*public String getCity() {
