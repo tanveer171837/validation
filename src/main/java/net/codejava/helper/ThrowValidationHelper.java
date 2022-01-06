@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.codejava.exceptions.DataValidationException;
 import net.codejava.exceptions.Error;
+import net.codejava.exceptions.ErrorCodes;
 
 @Component
 public class ThrowValidationHelper {
@@ -26,7 +27,8 @@ public class ThrowValidationHelper {
 						mapper.valueToTree(String.valueOf(fieldError.getArguments()[0]).equals("General")
 								? new Error(String.valueOf(fieldError.getArguments()[0]), fieldError.getCode(),
 										fieldError.getDefaultMessage())
-								: new Error("appParam", fieldError.getDefaultMessage())));
+								: new Error("appParam", ErrorCodes.valueOf(fieldError.getDefaultMessage()).getCode(),
+										ErrorCodes.valueOf(fieldError.getDefaultMessage()).getMessage())));
 				++errorCount;
 			}
 			errorJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
